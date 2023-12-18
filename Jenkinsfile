@@ -46,6 +46,8 @@ pipeline {
         always {
             script {
                 sh "docker rm -f frontend backend"
+                sh "docker-compose down"
+                cleanWs()
             }
         }
     }
