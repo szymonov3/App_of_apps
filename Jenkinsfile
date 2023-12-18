@@ -10,8 +10,8 @@ pipeline {
         label 'agent'
     }
     parameters {
-        string(name: 'backendDockerTag', defaultValue: '', description: 'Tag for the backend Docker image')
-        string(name: 'frontendDockerTag', defaultValue: '', description: 'Tag for the frontend Docker image')
+        string(name: 'backendDockerTag', defaultValue: 'latest', description: 'Tag for the backend Docker image')
+        string(name: 'frontendDockerTag', defaultValue: 'latest', description: 'Tag for the frontend Docker image')
     }
     stages {
         stage('Get Code') {
