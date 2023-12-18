@@ -13,6 +13,9 @@ pipeline {
         string(name: 'backendDockerTag', defaultValue: 'latest', description: 'Tag for the backend Docker image')
         string(name: 'frontendDockerTag', defaultValue: 'latest', description: 'Tag for the frontend Docker image')
     }
+    environment {
+        PIP_BREAK_SYSTEM_PACKAGES = "1"
+    }
     stages {
         stage('Get Code') {
             steps {
@@ -38,6 +41,16 @@ pipeline {
                             sh "docker-compose up -d"
                         }
                     }
+                }
+            }
+        }
+        stage('Run Selenium Tests') {
+            steps {
+                script {
+                    // Instaluj zależności
+                    sh "pip3 install -r test/selenium/requirements.txt"
+                    // Uruchom testy Selenium
+                    sh "python3 -m pytest test/selenium/frontendTest.py"
                 }
             }
         }
