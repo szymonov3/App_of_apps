@@ -47,9 +47,7 @@ pipeline {
         stage('Run Selenium Tests') {
             steps {
                 script {
-                    // Instaluj zależności
                     sh "pip3 install -r test/selenium/requirements.txt"
-                    // Uruchom testy Selenium
                     sh "python3 -m pytest test/selenium/frontendTest.py"
                 }
             }
