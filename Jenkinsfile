@@ -8,7 +8,10 @@ pipeline {
     agent {
         label 'agent'
     } 
-
+    parameters {
+	string 'backendDockerTag',
+        string 'frontendDockerTag'
+    }
     stages {
         stage('Get Code') {
             steps {
