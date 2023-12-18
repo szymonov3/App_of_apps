@@ -56,7 +56,8 @@ pipeline {
     post {
         always {
             script {
-                sh "docker rm -f frontend backend"
+                sh "docker rm -f frontend"
+                sh "docker rm -f backend"
                 sh "docker-compose down"
                 cleanWs()
             }
