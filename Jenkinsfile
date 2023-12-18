@@ -33,7 +33,7 @@ pipeline {
     post {
         always {
             script {
-                sh "docker rm -f frontend"
+                sh "docker rm -f frontend backend"
             }
         }
     }
