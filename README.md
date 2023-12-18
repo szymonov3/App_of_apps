@@ -11,3 +11,4 @@ By selecting different branches you can get the sample code that you should have
 | main | tests | Selenium tests for application |
 | jenkinsfile | CI/CD 6  | Jenkinsfile, application deployment code |
 | final | CI/CD 7 | Complete CD/CD pipeline |
+
