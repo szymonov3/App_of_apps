@@ -18,9 +18,6 @@ pipeline {
                 checkout scm
             }
         }
-    }
-
-    stages {
         stage('Adjust version') {
             steps {
                 script{
