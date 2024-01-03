@@ -16,8 +16,8 @@ pipeline {
         terraform 'Terraform'
     }
     parameters {
-        string(name: 'backendDockerTag', defaultValue: 'latest', description: 'Tag for the backend Docker image')
-        string(name: 'frontendDockerTag', defaultValue: 'latest', description: 'Tag for the frontend Docker image')
+        string(name: 'backendDockerTag', defaultValue: '', description: 'Backend docker image tag')
+        string(name: 'frontendDockerTag', defaultValue: '', description: 'Frontend docker image tag')
     }
 
     stages {
