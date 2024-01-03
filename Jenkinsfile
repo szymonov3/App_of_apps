@@ -69,8 +69,8 @@ pipeline {
                 dir('Terraform') {                
                     git branch: 'main', url: 'https://github.com/Panda-Academy-Core-2-0/Terraform'
                     withAWS(credentials:'AWS', region: 'us-east-1') {
-                            sh 'terraform init -backend-config=bucket=panda-academy-panda-devops-core-n'
-                            sh 'terraform apply -auto-approve -var bucket_name=panda-academy-panda-devops-core-n'
+                            sh 'terraform init -backend-config=bucket=szymon-stachow-devops-core-17'
+                            sh 'terraform apply -auto-approve -var bucket_name=szymon-stachow-devops-core-17'
                             
                     } 
                 }
