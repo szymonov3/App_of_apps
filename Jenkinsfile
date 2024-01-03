@@ -56,14 +56,13 @@ pipeline {
                 }
             }
         }
-        stage('Run Selenium Tests') {
+        stage('Selenium tests') {
             steps {
-                script {
-                    sh "pip3 install -r test/selenium/requirements.txt"
-
-                }
+                sh "pip3 install -r test/selenium/requirements.txt"
+                sh "python3 -m pytest test/selenium/frontendTest.py"
             }
         }
+        
         stage('Run terraform') {
             steps {
                 dir('Terraform') {                
@@ -76,6 +75,18 @@ pipeline {
                 }
             }
         }
+        stage('Run Ansible') {
+               steps {
+                   script {
+                        sh "pip3 install -r requirements.txt"
+                        sh "ansible-galaxy install -r requirements.yml"
+                        withEnv(["FRONTEND_IMAGE=$frontendImage:$frontendDockerTag", 
+                                 "BACKEND_IMAGE=$backendImage:$backendDockerTag"]) {
+                            ansiblePlaybook inventory: 'inventory', playbook: 'playbook.yml'
+                        }
+                }
+            }
+        }        
     }
     post {
         always {
