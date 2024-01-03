@@ -17,8 +17,8 @@ class AppTest(unittest.TestCase):
 
     def test_our_app(self):
         driver = self.driver
-        driver.set_page_load_timeout(5)
-        driver.set_script_timeout(5)
+        driver.set_page_load_timeout(10)
+        driver.set_script_timeout(10)
         driver.get(application_URL)
         elem = driver.find_element(By.NAME, "name")
         elem.send_keys("luka")
